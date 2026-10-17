@@ -1,0 +1,84 @@
+{
+  "run_id": "20261017T195959Z-cb3057",
+  "inicio_utc": "2026-10-17T19:59:59.736319+00:00",
+  "status": "SUCESSO",
+  "origem": {
+    "arquivo": "CARGA_ENERGIA_2026.parquet",
+    "bytes": 16240,
+    "sha256": "908656f25332feda7026418d81215034f04f047a5566090292ca96d220206ed2"
+  },
+  "versoes": {
+    "python": "3.12.3",
+    "duckdb": "1.5.6"
+  },
+  "camadas": {
+    "bronze": {
+      "linhas": 1148,
+      "arquivo": "lakehouse/bronze/carga_energia_di/run_id=20261017T195959Z-cb3057/data.parquet"
+    },
+    "silver": {
+      "linhas": 1148,
+      "bytes": 10535,
+      "sha256": "d6394b5fe1af2732a0d472e566f24b6b1024ebedef6816fe83d6ecf38e2a98f2",
+      "arquivo": "lakehouse/silver/carga_energia_di.parquet"
+    },
+    "gold_mensal": {
+      "linhas": 40,
+      "bytes": 838,
+      "sha256": "bb24e7c34ce061f7826376abb40266618596b11d093aa56060e9da9e2be7444a",
+      "arquivo": "lakehouse/gold/carga_media_mensal.parquet"
+    },
+    "gold_sin_diaria": {
+      "linhas": 287,
+      "bytes": 2146,
+      "sha256": "5079f0d020a7917073e40ffc961a8142d639087dedae26a120c61d1693d62a0d",
+      "arquivo": "lakehouse/gold/carga_sin_diaria.parquet"
+    }
+  },
+  "qualidade": [
+    {
+      "regra": "chaves_duplicadas_na_origem",
+      "valor": 0,
+      "esperado": 0,
+      "severidade": "AVISO",
+      "ok": true
+    },
+    {
+      "regra": "nulos_em_carga",
+      "valor": 0,
+      "esperado": 0,
+      "severidade": "ERRO",
+      "ok": true
+    },
+    {
+      "regra": "cargas_nao_positivas",
+      "valor": 0,
+      "esperado": 0,
+      "severidade": "ERRO",
+      "ok": true
+    },
+    {
+      "regra": "subsistemas_distintos",
+      "valor": 4,
+      "esperado": 4,
+      "severidade": "ERRO",
+      "ok": true
+    },
+    {
+      "regra": "dias_sem_os_4_subsistemas",
+      "valor": 0,
+      "esperado": 0,
+      "severidade": "ERRO",
+      "ok": true
+    },
+    {
+      "regra": "lacunas_de_data",
+      "valor": 0,
+      "esperado": 0,
+      "severidade": "ERRO",
+      "ok": true
+    }
+  ],
+  "fim_utc": "2026-10-17T19:59:59.784657+00:00",
+  "duracao_s": 0.048
+}

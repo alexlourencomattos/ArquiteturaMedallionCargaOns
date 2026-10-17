@@ -1,0 +1,19 @@
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | execução iniciada | python=3.12.3 | duckdb=1.5.6
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | início | etapa=fingerprint_origem
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | origem | arquivo=CARGA_ENERGIA_2026_corrompido.parquet | bytes=13039 | sha256=0cdd2093a9663d79…
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | fim | etapa=fingerprint_origem | duracao_s=0.000
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | início | etapa=bronze
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | bronze gravado | linhas=1147 | destino=lake_falha/bronze/carga_energia_di/run_id=20261017T195959Z-5889d9/data.parquet
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | fim | etapa=bronze | duracao_s=0.008
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | início | etapa=silver_transformacao
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | silver | linhas_bronze_total=1147 | linhas_silver=1147 | removidas_por_dedup=0
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | fim | etapa=silver_transformacao | duracao_s=0.010
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | início | etapa=quality_gate
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | qualidade OK | regra=chaves_duplicadas_na_origem | valor=0
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | qualidade OK | regra=nulos_em_carga | valor=0
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | qualidade OK | regra=cargas_nao_positivas | valor=0
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | qualidade OK | regra=subsistemas_distintos | valor=4
+2026-10-17T20:00:00Z | ERROR   | run=20261017T195959Z-5889d9 | qualidade FALHA | regra=dias_sem_os_4_subsistemas | valor=1 | esperado=0
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | qualidade OK | regra=lacunas_de_data | valor=0
+2026-10-17T20:00:00Z | INFO    | run=20261017T195959Z-5889d9 | fim | etapa=quality_gate | duracao_s=0.007
+2026-10-17T20:00:00Z | ERROR   | run=20261017T195959Z-5889d9 | publicação BLOQUEADA | falhas=1 | bronze preservado em lake_falha/bronze/carga_energia_di/run_id=20261017T195959Z-5889d9/data.parquet

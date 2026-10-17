@@ -1,0 +1,24 @@
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | execução iniciada | python=3.12.3 | duckdb=1.5.6
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | início | etapa=fingerprint_origem
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | origem | arquivo=CARGA_ENERGIA_2026.parquet | bytes=16240 | sha256=908656f25332feda…
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | fim | etapa=fingerprint_origem | duracao_s=0.000
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | início | etapa=bronze
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | bronze gravado | linhas=1148 | destino=lakehouse/bronze/carga_energia_di/run_id=20261017T195959Z-cb3057/data.parquet
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | fim | etapa=bronze | duracao_s=0.007
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | início | etapa=silver_transformacao
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | silver | linhas_bronze_total=1148 | linhas_silver=1148 | removidas_por_dedup=0
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | fim | etapa=silver_transformacao | duracao_s=0.008
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | início | etapa=quality_gate
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | qualidade OK | regra=chaves_duplicadas_na_origem | valor=0
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | qualidade OK | regra=nulos_em_carga | valor=0
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | qualidade OK | regra=cargas_nao_positivas | valor=0
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | qualidade OK | regra=subsistemas_distintos | valor=4
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | qualidade OK | regra=dias_sem_os_4_subsistemas | valor=0
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | qualidade OK | regra=lacunas_de_data | valor=0
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | fim | etapa=quality_gate | duracao_s=0.010
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | início | etapa=publicacao_silver_gold
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | publicado | camada=silver | linhas=1148 | bytes=10535 | destino=lakehouse/silver/carga_energia_di.parquet
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | publicado | camada=gold_mensal | linhas=40 | bytes=838 | destino=lakehouse/gold/carga_media_mensal.parquet
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | publicado | camada=gold_sin_diaria | linhas=287 | bytes=2146 | destino=lakehouse/gold/carga_sin_diaria.parquet
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | fim | etapa=publicacao_silver_gold | duracao_s=0.012
+2026-10-17T19:59:59Z | INFO    | run=20261017T195959Z-cb3057 | execução concluída | status=SUCESSO | duracao_s=0.048 | manifesto=lakehouse/manifests/20261017T195959Z-cb3057.json
